@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: violet;
+        }
+        
+        .box {
+            width: 500px;
+            height: 300px;
+            background-color: #999;
+            padding-top: 10px;
+        }
+        
+        .title {
+            width: 90%;
+            height: 100px;
+            background-color: white;
+            margin-left: 25px;
+        }
+        
+        .title a {
+            float: left;
+            width: 50%;
+            height: 100px;
+            text-align: center;
+            line-height: 90px
+        }
+        
+        .con {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .con-list {
+            width: 500px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+        
+        .item-img {
+            width: 180px;
+            height: 180px;
+            float: right;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        
+        .con-list span {
+            position: relative;
+            left: 15px;
+            margin-left: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #00B262;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="title">
+            <a href="javascript:;" style="background-color: green;">今日疯抢</a>
+            <a href="javascript:;">量版装</a>
+
+        </div>
+        <div class="con">
+            <div class="con-list">
+
+                <span class="tab-item-title">进口牛奶</span>
+                <img src="banner4-img2.jpg" class="item-img">
+            </div>
+
+
+            <div class="con-list">456</div>
+        </div>
+    </div>
+    <script>
+        // window.onmousemove
+
+        var titles = document.querySelectorAll(".title a");
+        var lists = document.querySelectorAll(".con-list")
+        var num = 0
+
+
+        setInterval(function run() {
+            if (num % 2 == 0) {
+                titles[1].style.background = "none";
+
+                lists[1].style.display = "none";
+                titles[0].style.background = "green"
+
+                lists[0].style.display = "block"
+            } else {
+                titles[0].style.background = "none";
+
+                lists[0].style.display = "none";
+                titles[1].style.background = "green"
+
+                lists[1].style.display = "block"
+            }
+            num += 1;
+
+        }, 1000)
+        for (let i = 0; i < titles.length; i++) {
+            titles[i].onmousemove = function() {
+                for (var j = 0; j < lists.length; j++) {
+                    titles[j].style.background = "none";
+
+                    lists[j].style.display = "none";
+
+                }
+                titles[i].style.background = "green"
+
+                lists[i].style.display = "block"
+
+            }
+        }
+    </script>
+</body>
+
+</html>
